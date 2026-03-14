@@ -1,11 +1,13 @@
-function Book(author, title, numberOfPages, isRead) {
-  this.id = crypto.randomUUID();
-  this.author = author;
-  this.title = title;
-  this.numberOfPages = numberOfPages;
-  this.isRead = isRead;
+class Book {
+  constructor(author, title, numberOfPages, isRead) {
+    this.id = crypto.randomUUID();
+    this.author = author;
+    this.title = title;
+    this.numberOfPages = numberOfPages;
+    this.isRead = isRead;
+  }
 
-  this.toggleIsRead = () => {
+  toggleIsRead = () => {
     this.isRead = !this.isRead;
   };
 }
@@ -34,7 +36,6 @@ function reloadLibrary() {
   const libraryElement = document.querySelector(".library");
   libraryElement.innerHTML = "";
   for (const book of library) {
-    console.log(book);
     const bookElement = document.createElement("div");
     bookElement.textContent = book.title;
     bookElement.dataset.id = book.id;
